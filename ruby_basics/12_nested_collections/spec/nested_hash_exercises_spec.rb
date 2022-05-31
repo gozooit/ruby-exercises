@@ -140,7 +140,7 @@ RSpec.describe 'Nested hash exercises' do
         }
       end
 
-      xit 'returns a hash with only ruby' do
+      it 'returns a hash with only ruby' do
         expected_output = {
           ruby: { is_beautiful?: true, initial_release: 'December 25, 1996' }
         }
@@ -157,7 +157,7 @@ RSpec.describe 'Nested hash exercises' do
         }
       end
 
-      xit 'returns the hash with only javascript and python' do
+      it 'returns the hash with only javascript and python' do
         expected_output = {
           javascript: { is_beautiful?: true, initial_release: 'December 4, 1995' },
           python: { is_beautiful?: true, initial_release: 'Feb 20, 1991' }
@@ -180,12 +180,12 @@ RSpec.describe 'Nested hash exercises' do
       }
     end
 
-    xit 'returns the first fact for ruby' do
+    it 'returns the first fact for ruby' do
       expected_output = 'was made for programmer happiness'
       expect(find_language_facts(hash, :ruby)).to eq(expected_output)
     end
 
-    xit 'returns the second fact for javascript' do
+    it 'returns the second fact for javascript' do
       expected_output = "its real name isn't even javascript"
       expect(find_language_facts(hash, :javascript, 1)).to eq(expected_output)
     end

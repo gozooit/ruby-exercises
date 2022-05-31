@@ -41,8 +41,14 @@ end
 def find_beautiful_languages(languages)
   # Take languages and return a hash containing only languages which have the
   # key/value pair { is_beautiful?: true } listed in their information
-  languages.map { |key,value| value[:is_beautiful?] == true }
+  languages.select { |language, info| info[:is_beautiful?] == true }
 end
+
+# languages = {
+#   ruby: { initial_release: 'December 25, 1996', is_beautiful?: true },
+#   javascript: { initial_release: 'December 4, 1995', is_beautiful?: false }
+# }
+# p find_beautiful_languages(languages)
 
 def find_language_facts(languages, language_name, fact_index = 0)
   # Take languages (now with additional facts added to each language with the
@@ -60,4 +66,9 @@ def find_language_facts(languages, language_name, fact_index = 0)
   #                 initial_release: 'December 4, 1995',
   #                 is_beautiful?: false }
   # }
+  languages.each do |key, value|
+    if key == language_name
+      return value[:facts][fact_index]
+    end
+  end
 end
